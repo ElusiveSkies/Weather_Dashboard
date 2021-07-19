@@ -6,7 +6,7 @@ var fiveDayRow = document.querySelector(".row");
 var forecast = document.querySelector(".forecast");
 var selectCity = document.querySelector(".selectCity");
 var cityButtons = document.querySelector(".cityButtons")
-var searchHistory = [];
+var searchHistory = ['Wilmington','Washington'];
 var searchTerm;
 
 const WEATHER_API_KEY = "e6697eaac8204b597f028b08761fe308";
@@ -139,12 +139,13 @@ function getApi() {
 
 function init() {
     if (searchHistory) {
-        var searchHistory = localStorage.getItem('searchHistory');
+        console.log("init search: ", searchHistory);
+        searchHistory = localStorage.getItem('searchHistory');
         historyButtons();
     } else {
-        searchHistory = [];
+        // searchHistory = [];
     }
-    console.log(searchHistory);
+    // console.log("init search: ", searchHistory);
 };
 
 // Remove previous search results
@@ -155,13 +156,26 @@ function removeButtons() {
 
 //  Creates current search results
 function historyButtons() {
+    console.log(typeof searchHistory)
+    console.log(searchHistory)
+    // console.log(searchHistory.split(","))
+    searchHistory = typeof searchHistory === "string" ? searchHistory.split(",") : searchHistory
+    console.log(searchHistory)
     for (var i = 0; i < searchHistory.length; i++) {
         var createButton = document.createElement('button');
-        // createButton.setAttribute("onclick", searchTerm.push(searchHistory[i]))        
+        createButton.setAttribute("id", searchHistory[i])        
         createButton.textContent = searchHistory[i];
         cityButtons.appendChild(createButton);
     }
 };
+
+// Start search when button is clicked
+cityButtons.addEventListener("click", function cityClick(event) {
+    event.preventDefault();
+    // searchTerm = 
+    // getApi()
+})
+
 
 init();
 
