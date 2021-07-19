@@ -21,43 +21,25 @@
                     <input type="text" placeholder="Search Cities" id="searchInput" name="searchInput">
                     <button type="submit" id="searchButton" name="searchButton"><i class="fa fa-search"></i></button>
                 </form>
+                <div class="cityButtons"></div>
             </div>
             <div class="col-sm-9 weather">
-                <p>
-                <h2 id="currentCity"></h2>
-                <h3 id="currentDay"></h3>
-                </p>
-                <p id="currentTemp"></p>
-                <p id="currentWind"></p>
-                <p id="currentHumidity"></p>
-                <p id="currentUV"></p>
+                <div class="current">
+                    <p>
+                    <h2 id="currentCity"></h2>
+                    <h4 id="currentDay"></h4>
+                    </p>
+                    <div class="currentWeather"></div>
+                </div>
 
-                <div class="currentWeather">Tomorrow doesn't look good either</div>
+                <div class="forecast"></div>
                 <div class="container">
                     <div class="row">
-                        <div class="col day">
-                            1 of 2
-                        </div>
-                        <div class="col day">
-                            2 of 2
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col day">
-                            1 of 3
-                        </div>
-                        <div class="col day">
-                            2 of 3
-                        </div>
-                        <div class="col day">
-                            3 of 3
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
 </body>

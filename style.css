@@ -15,9 +15,9 @@ body {
     text-align: center;
 }
 
-h1 {
+h4 {
     font-size: 30px;
-    text-decoration: underline;
+    border-bottom: 1px solid white;
 }
 
 .content {
@@ -50,15 +50,46 @@ button {
     display: flex;
     align-content: space-between;
     flex-flow: column;
+    max-width: 60%;
     border: 1px solid #5B6057;
     background-color: #8ca691;
     border-radius: 12px;
-    width: fit-content;
+}
+
+.green {
+    background-color: rgba(0, 128, 0, 0.65);
+}
+
+.yellow {
+    background-color: rgba(255, 255, 0, 0.65);
+}
+
+.orange {
+    background-color: rgba(255, 166, 0, 0.65);
+}
+
+.red {
+    background-color: rgba(255, 0, 0, 0.65);
+}
+
+.purple {
+    background-color: rgba(128, 0, 128, 0.65);
+}
+
+.forecast {
+    border-top: 1px solid white;
+    font-size: 30px;
+}
+
+.row {
+    display: flex;
+    align-content: space-between;
 }
 
 .day {
     text-align: center;
     background-color: #f3e5ab;
+    width: fit-content;
     margin: 10px;
     border-radius: 8px;
     color: black;
