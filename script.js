@@ -24,7 +24,6 @@ searchButton.addEventListener("click", function getCity(event) {
     var cityName = document.querySelector("#searchInput");
     var searchTerm = cityName.value;
 
-    console.log(searchTerm)
     // Stores city name to local storage
     localStorage.setItem('searchTerm', searchTerm)
     searchHistory.push(searchTerm);
@@ -48,7 +47,6 @@ function getApi() {
 
         .then(function (data) {
 
-            console.log(data)
             var latitude = data.coord.lat;
             var longitude = data.coord.lon;
 
@@ -62,7 +60,6 @@ function getApi() {
 
                 .then(function (oneCallData) {
 
-                    console.log(oneCallData)
                     currentCityEl.textContent = '';
                     // Clears previous search data
                     while (currentWeather.firstChild) { currentWeather.removeChild(currentWeather.firstChild) }
@@ -137,9 +134,7 @@ function getApi() {
 };
 
 function init() {
-    console.log("init search: ", searchHistory);
     searchHistory = localStorage.getItem('searchHistory') || searchHistory;
-    console.log("search 2: ", searchHistory)
     historyButtons();
 };
 localStorage.getItem('searchHistory') || searchHistory;
@@ -154,7 +149,6 @@ function removeButtons() {
 //  Creates current search results
 function historyButtons() {
     searchHistory = typeof searchHistory === "string" ? searchHistory.split(",") : searchHistory
-    console.log(searchHistory)
     for (var i = 0; i < searchHistory.length; i++) {
         var createButton = document.createElement('button');
         createButton.setAttribute("onclick", 'storeVar(this.value)')
@@ -168,7 +162,6 @@ function historyButtons() {
 function storeVar(clickedCity) {
     let searchTerm = clickedCity;
     localStorage.setItem('searchTerm', searchTerm)
-    console.log(searchTerm);
     getApi();
 }
 
