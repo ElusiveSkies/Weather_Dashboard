@@ -6,7 +6,7 @@ var fiveDayRow = document.querySelector(".row");
 var forecast = document.querySelector(".forecast");
 var selectCity = document.querySelector(".selectCity");
 var cityButtons = document.querySelector(".cityButtons")
-var searchHistory = ['Wilmington','Washington'];
+var searchHistory = ['Wilmington', 'Washington'];
 var searchTerm;
 
 const WEATHER_API_KEY = "e6697eaac8204b597f028b08761fe308";
@@ -38,7 +38,7 @@ searchButton.addEventListener("click", function getCity(event) {
 function getApi() {
     var searchTerm = localStorage.getItem('searchTerm');
 
-    // fetch request gets a list of all the repos for the node.js organization
+    // fetch request gets weather
     var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + searchTerm + '&appid=' + WEATHER_API_KEY + '&units=imperial';
 
     fetch(requestUrl)
@@ -134,56 +134,42 @@ function getApi() {
                     }
                 })
         });
-
 };
 
 function init() {
-    if (searchHistory) {
-        console.log("init search: ", searchHistory);
-        searchHistory = localStorage.getItem('searchHistory');
-        historyButtons();
-    } else {
-        // searchHistory = [];
-    }
-    // console.log("init search: ", searchHistory);
+    console.log("init search: ", searchHistory);
+    searchHistory = localStorage.getItem('searchHistory') || searchHistory;
+    console.log("search 2: ", searchHistory)
+    historyButtons();
 };
+localStorage.getItem('searchHistory') || searchHistory;
 
 // Remove previous search results
 function removeButtons() {
     if (cityButtons.firstChild !== null) {
-    while (cityButtons.firstChild) { cityButtons.removeChild(cityButtons.firstChild) }
-}};
+        while (cityButtons.firstChild) { cityButtons.removeChild(cityButtons.firstChild) }
+    }
+};
 
 //  Creates current search results
 function historyButtons() {
-    console.log(typeof searchHistory)
-    console.log(searchHistory)
-    // console.log(searchHistory.split(","))
     searchHistory = typeof searchHistory === "string" ? searchHistory.split(",") : searchHistory
     console.log(searchHistory)
     for (var i = 0; i < searchHistory.length; i++) {
         var createButton = document.createElement('button');
-        createButton.setAttribute("id", searchHistory[i])        
+        createButton.setAttribute("onclick", 'storeVar(this.value)')
+        createButton.setAttribute("value", searchHistory[i])
         createButton.textContent = searchHistory[i];
         cityButtons.appendChild(createButton);
     }
 };
 
-// Start search when button is clicked
-cityButtons.addEventListener("click", function cityClick(event) {
-    event.preventDefault();
-    // searchTerm = 
-    // getApi()
-})
-
+// Pulls data for city if button is clicked
+function storeVar(clickedCity) {
+    let searchTerm = clickedCity;
+    localStorage.setItem('searchTerm', searchTerm)
+    console.log(searchTerm);
+    getApi();
+}
 
 init();
-
-
-
-
-// WHEN I click on a city in the search history
-// THEN I am again presented with current and future conditions for that city
-
-//localstorage Search history not holding on reload
-//set up history button to present conditions for selected city
