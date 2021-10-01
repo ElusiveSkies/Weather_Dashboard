@@ -1,26 +1,32 @@
 # Weather_Dashboard
+Weather Dashboard
 
-## Layout
-Created initial layout and styled with bootstrap and custom CSS
+[[Repository Link](https://github.com/ElusiveSkies/Weather_Dashboard)]
 
-## Current Day
-Added js to display current weather city name, current conditions, and current day
+[[Deployed Weather Dashboard](https://elusiveskies.github.io/Weather_Dashboard)]
 
-## Forecast
-Added code to use initial fetch to gather information for an additional call for the forecast
-Dynamically created forecast area with symbols, temps, and wind speeds
+## Table of Contents
 
-## UV Index
-Changed background color for UV index
+- [Description](#Description)
+- [Usage](#Usage)
+- [License](#License)
+- [Questions](#Questions)
 
-## Previous Searches
-Dynamically created buttons from previous searches
+## Description
+Allows user the search for a city, viewing the current weather and a five day forecast.
+Created using Bootstrap, HTML, CSS, and JavaScript.
 
-## Restoring page
-Added code to remove previous search data to avoid having multiples of each search
+## Usage
 
-## Updated functionality
-Fixed code for pulling local storage data
-Added code to pull value from dynamically created city buttons so they will display desired weather conditions
+Video of Usage
+![Video of Usage](./img/weather-active.gif)
 
-![Alt text](Weather_Dashboard.jpg)
+## License
+
+MIT
+
+## Questions
+
+[[Contact me](mailto:elusiveskies@gmail.com)]
+
+[[Elusiveskies](https://www.github.com/Elusiveskies)]
