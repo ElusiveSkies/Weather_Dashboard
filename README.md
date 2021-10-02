@@ -8,13 +8,19 @@ Weather Dashboard
 ## Table of Contents
 
 - [Description](#Description)
+- [Technology](#Technology)
 - [Usage](#Usage)
 - [License](#License)
 - [Questions](#Questions)
 
 ## Description
 Allows user the search for a city, viewing the current weather and a five day forecast.
-Created using Bootstrap, HTML, CSS, and JavaScript.
+
+## Technology
+
+- HTML
+- CSS
+- JavaScript.
 
 ## Usage
 
